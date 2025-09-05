@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import ScrollToTop from "./components/ScrollToTop";
 import Presentation from "./pages/Presentation";
 import Pedagogie from "./pages/Pedagogie";
 import Tarification from "./pages/Tarification";
@@ -19,6 +20,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Presentation />} />
