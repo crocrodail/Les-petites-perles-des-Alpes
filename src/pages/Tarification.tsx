@@ -100,7 +100,7 @@ const Tarification = () => {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Nos Tarifs</h2>
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Nos Tarifs</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Choisissez la formule qui correspond le mieux à vos besoins et à votre rythme de vie
             </p>
@@ -167,10 +167,10 @@ const Tarification = () => {
       <section className="py-24 bg-gradient-secondary">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Aides Financières</h2>
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Aides Financières</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               De nombreuses aides existent pour réduire significativement le coût de la garde 
-              de votre enfant dans notre micro crèche
+              de votre enfant dans notre micro crèche Les petites perles Des Alpes
             </p>
           </div>
           
@@ -226,7 +226,7 @@ const Tarification = () => {
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Services Inclus</h2>
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Services Inclus</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Tous nos tarifs incluent ces services pour vous simplifier la vie au quotidien
             </p>
@@ -256,7 +256,7 @@ const Tarification = () => {
       {/* CTA */}
       <section className="py-24 bg-gradient-secondary">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-foreground mb-6">Besoin d'un Devis Personnalisé ?</h2>
+          <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Besoin d'un Devis Personnalisé ?</h2>
           <p className="text-xl text-muted-foreground mb-10 text-balance">
             Contactez-nous pour établir un devis adapté à vos besoins spécifiques 
             et bénéficier de nos conseils pour optimiser vos aides

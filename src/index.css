@@ -9,49 +9,51 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Premium nature-inspired color palette */
-    --background: 45 15% 98%;
-    --foreground: 150 12% 15%;
+    --background: 195 70% 98%;
+    --foreground: 0 0% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 150 12% 15%;
+    --card-foreground: 0 0% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 150 12% 15%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Sage green primary */
-    --primary: 150 25% 45%;
+    /* Bleu clair primary pour les boutons */
+    --primary: 195 70% 45%;
     --primary-foreground: 0 0% 100%;
     
-    /* Warm natural secondary */
-    --secondary: 45 20% 92%;
-    --secondary-foreground: 150 12% 15%;
+    /* Bleu clair secondary */
+    --secondary: 195 70% 90%;
+    --secondary-foreground: 0 0% 9%;
 
     /* Soft muted tones */
-    --muted: 45 15% 95%;
-    --muted-foreground: 150 8% 55%;
+    --muted: 25 70% 95%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Natural accent */
-    --accent: 120 15% 85%;
-    --accent-foreground: 150 12% 15%;
+    /* Pêche clair accent */
+    --accent: 25 70% 88%;
+    --accent-foreground: 0 0% 9%;
 
     --destructive: 0 75% 65%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 45 12% 88%;
-    --input: 45 12% 88%;
-    --ring: 150 25% 45%;
+    --border: 25 70% 88%;
+    --input: 25 70% 88%;
+    --ring: 42 60% 65%;
 
     --radius: 0.75rem;
 
     /* Premium gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(150 25% 45%) 0%, hsl(120 20% 50%) 100%);
-    --gradient-secondary: linear-gradient(180deg, hsl(45 15% 98%) 0%, hsl(45 20% 92%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(150 25% 45% / 0.1) 0%, hsl(120 20% 50% / 0.05) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(195 70% 45%) 0%, hsl(195 70% 60%) 100%);
+    --gradient-secondary: linear-gradient(180deg, hsl(195 70% 98%) 0%, hsl(195 70% 90%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(195 70% 45% / 0.1) 0%, hsl(25 70% 88% / 0.05) 100%);
+    --gradient-peach: linear-gradient(135deg, hsl(25 70% 88%) 0%, hsl(25 70% 95%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 60% 65%) 0%, hsl(42 80% 75%) 100%);
     
     /* Elegant shadows */
-    --shadow-luxury: 0 20px 40px hsl(150 25% 45% / 0.08);
-    --shadow-soft: 0 8px 24px hsl(150 15% 25% / 0.06);
-    --shadow-card: 0 4px 12px hsl(150 10% 25% / 0.04);
+    --shadow-luxury: 0 20px 40px hsl(195 70% 45% / 0.08);
+    --shadow-soft: 0 8px 24px hsl(195 50% 35% / 0.06);
+    --shadow-card: 0 4px 12px hsl(195 30% 25% / 0.04);
     
     /* Smooth animations */
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -135,6 +137,18 @@ All colors MUST be HSL.
   
   .gradient-hero {
     background: var(--gradient-hero);
+  }
+  
+  .gradient-peach {
+    background: var(--gradient-peach);
+  }
+  
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+  
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
   }
   
   .shadow-luxury {

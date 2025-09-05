@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Leaf } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,13 +26,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="p-2 bg-gradient-primary rounded-xl shadow-soft transition-smooth group-hover:scale-105">
-              <Leaf className="h-6 w-6 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-xl font-semibold text-foreground">Micro Crèche</h1>
-              <p className="text-sm text-muted-foreground">Nature & Éveil</p>
-            </div>
+            <img src={logo} alt="Logo" className="h-32 w-32" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -40,7 +35,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-smooth hover:bg-primary/20 hover:text-primary ${
                   isActive(item.href)
                     ? "bg-primary text-primary-foreground shadow-soft"
                     : "text-muted-foreground"
@@ -53,8 +48,12 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button variant="default" className="shadow-soft transition-smooth hover:shadow-luxury">
-              Nous contacter
+            <Button 
+              variant="default" 
+              className="shadow-soft transition-smooth hover:shadow-luxury bg-[#F6D7C5] text-gray-600 hover:bg-[#F6D7C5]/80"
+              onClick={() => window.open("https://les-petites-perles-des-alpes.jdmapps.fr/index.php/espace-famille/reserver-une-place", "_blank")}
+            >
+              Préinscription
             </Button>
           </div>
 
@@ -83,14 +82,19 @@ const Header = () => {
                   className={`block px-4 py-3 rounded-lg text-sm font-medium transition-smooth ${
                     isActive(item.href)
                       ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                      : "text-muted-foreground hover:bg-primary/20 hover:text-primary"
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
               <div className="pt-4 border-t border-border">
-                <Button className="w-full">Nous contacter</Button>
+                <Button 
+                  className="w-full bg-[#F6D7C5] text-gray-600 hover:bg-[#F6D7C5]/80"
+                  onClick={() => window.open("https://les-petites-perles-des-alpes.jdmapps.fr/index.php/espace-famille/reserver-une-place", "_blank")}
+                >
+                  Préinscription
+                </Button>
               </div>
             </div>
           </div>

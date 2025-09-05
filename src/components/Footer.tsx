@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Leaf, Phone, Mail, MapPin } from "lucide-react";
+import { Leaf, Phone, Mail, MapPin, Facebook } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -9,11 +10,11 @@ const Footer = () => {
           {/* Logo et description */}
           <div className="col-span-1 lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="p-2 bg-gradient-primary rounded-xl shadow-soft">
-                <Leaf className="h-6 w-6 text-primary-foreground" />
+              <div className="bg-gradient-primary rounded-xl shadow-soft">
+                <img src={logo} alt="Logo" className="h-32 w-32" />
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-foreground">Micro Crèche Nature & Éveil</h2>
+                <h2 className="text-lg font-semibold text-foreground">Les petites perles Des Alpes</h2>
                 <p className="text-sm text-muted-foreground">Pédagogie par la nature</p>
               </div>
             </div>
@@ -22,14 +23,27 @@ const Footer = () => {
               et le respect de l'environnement. Nous accompagnons chaque enfant dans 
               son développement harmonieux.
             </p>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Phone className="h-4 w-4" />
-                <span>01 23 45 67 89</span>
+            <div className="flex flex-col space-y-3">
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                  <Phone className="h-4 w-4" />
+                  <span>07 57 57 45 29</span>
+                </div>
+                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                  <Mail className="h-4 w-4" />
+                  <span>lespetitesperlesdesalpes@gmail.com</span>
+                </div>
               </div>
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Mail className="h-4 w-4" />
-                <span>contact@microcreche.fr</span>
+                <Facebook className="h-4 w-4" />
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61556281616849" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-smooth"
+                >
+                  Suivez-nous sur Facebook
+                </a>
               </div>
             </div>
           </div>
@@ -80,8 +94,8 @@ const Footer = () => {
               <div className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 text-primary mt-0.5" />
                 <div className="text-sm text-muted-foreground">
-                  <p>123 Rue de la Nature</p>
-                  <p>75001 Paris</p>
+                  <p>224 Rue du Bois Bizot</p>
+                  <p>74930 Reignier-Ésery</p>
                 </div>
               </div>
               <div className="text-sm text-muted-foreground">
@@ -94,7 +108,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-12 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 Micro Crèche Nature & Éveil. Tous droits réservés.
+            © {new Date().getFullYear()} Les petites perles Des Alpes. Tous droits réservés.
           </p>
         </div>
       </div>

@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Clock, MapPin, Phone, Mail, FileText, HelpCircle, MessageCircle } from "lucide-react";
+import { Clock, MapPin, Phone, Mail, FileText, HelpCircle, MessageCircle, Facebook } from "lucide-react";
 
 const InfosPratiques = () => {
   const faqItems = [
@@ -42,9 +42,10 @@ const InfosPratiques = () => {
   ];
 
   const contactInfo = {
-    address: "123 Rue de la Nature, 75001 Paris",
-    phone: "01 23 45 67 89",
-    email: "contact@microcreche-nature.fr",
+    address: "224 Rue du Bois Bizot, 74930 Reignier-Ésery",
+    phone: "07 57 57 45 29",
+    email: "lespetitesperlesdesalpes@gmail.com",
+    facebook: "https://www.facebook.com/profile.php?id=61556281616849",
     hours: {
       weekdays: "Lundi au Vendredi : 7h30 - 18h30",
       weekend: "Fermé les week-ends et jours fériés"
@@ -72,14 +73,14 @@ const InfosPratiques = () => {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Nous Contacter</h2>
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Nous Contacter</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Notre équipe est à votre disposition pour répondre à toutes vos questions
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center">
+          <div className="flex flex-wrap justify-center gap-8">
+            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
                   <MapPin className="h-6 w-6" />
@@ -89,7 +90,7 @@ const InfosPratiques = () => {
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center">
+            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
                   <Phone className="h-6 w-6" />
@@ -99,7 +100,7 @@ const InfosPratiques = () => {
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center">
+            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
                   <Mail className="h-6 w-6" />
@@ -109,7 +110,24 @@ const InfosPratiques = () => {
               </CardContent>
             </Card>
             
-            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center">
+            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
+                  <Facebook className="h-6 w-6" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Facebook</h3>
+                <a 
+                  href={contactInfo.facebook} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary hover:text-primary/80 transition-smooth text-sm"
+                >
+                  Suivez-nous sur Facebook
+                </a>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
                   <Clock className="h-6 w-6" />
@@ -128,7 +146,7 @@ const InfosPratiques = () => {
       <section className="py-24 bg-gradient-secondary">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Questions Fréquentes</h2>
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Questions Fréquentes</h2>
             <p className="text-xl text-muted-foreground text-balance">
               Les réponses aux questions les plus courantes de nos familles
             </p>
@@ -157,7 +175,7 @@ const InfosPratiques = () => {
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Horaires & Fonctionnement</h2>
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Horaires & Fonctionnement</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -225,7 +243,7 @@ const InfosPratiques = () => {
       <section className="py-24 bg-gradient-secondary">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Informations Utiles</h2>
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Informations Utiles</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -296,7 +314,7 @@ const InfosPratiques = () => {
       <section className="py-24 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Une Question ?</h2>
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Une Question ?</h2>
             <p className="text-xl text-muted-foreground text-balance">
               N'hésitez pas à nous contacter pour toute information complémentaire
             </p>
@@ -314,9 +332,9 @@ const InfosPratiques = () => {
                 <p className="text-muted-foreground mb-4">
                   Notre équipe est disponible aux heures d'ouverture pour répondre à vos questions.
                 </p>
-                <Button className="w-full">
+                <Button className="w-full" onClick={() => window.open("tel:0757574529")}>
                   <Phone className="h-4 w-4 mr-2" />
-                  01 23 45 67 89
+                  07 57 57 45 29
                 </Button>
               </CardContent>
             </Card>
@@ -332,9 +350,9 @@ const InfosPratiques = () => {
                 <p className="text-muted-foreground mb-4">
                   Envoyez-nous un email, nous vous répondrons dans les plus brefs délais.
                 </p>
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full" onClick={() => window.open("mailto:lespetitesperlesdesalpes@gmail.com")}>
                   <Mail className="h-4 w-4 mr-2" />
-                  contact@microcreche-nature.fr
+                  lespetitesperlesdesalpes@gmail.com
                 </Button>
               </CardContent>
             </Card>

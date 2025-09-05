@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Sprout, Sun, Palette, Music, BookOpen, Heart } from "lucide-react";
-import pedagogyImage from "@/assets/pedagogy-nature.jpg";
+import pedagogyImage from "@/assets/galery/@GLEMET_LMDT_005_04_3751HD.jpg";
 
 const Pedagogie = () => {
   const activities = [
@@ -95,7 +95,7 @@ const Pedagogie = () => {
       <section className="py-24 bg-gradient-secondary">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Nos Principes Pédagogiques</h2>
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Nos Principes Pédagogiques</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Une philosophie éducative basée sur le respect, la bienveillance et 
               l'épanouissement naturel de chaque enfant
@@ -119,7 +119,7 @@ const Pedagogie = () => {
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Nos Activités</h2>
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Nos Activités</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Des activités variées et adaptées pour stimuler tous les sens 
               et favoriser l'éveil naturel des enfants
@@ -149,9 +149,9 @@ const Pedagogie = () => {
       <section className="py-24 bg-gradient-secondary">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6">Une Journée Type</h2>
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Une Journée Type</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
-              Découvrez comment se déroule une journée dans notre micro crèche, 
+              Découvrez comment se déroule une journée dans notre micro crèche Les petites perles Des Alpes, 
               rythmée par les besoins naturels des enfants
             </p>
           </div>
@@ -185,9 +185,9 @@ const Pedagogie = () => {
       {/* CTA */}
       <section className="py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-foreground mb-6">Découvrez Notre Pédagogie</h2>
+          <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Découvrez Notre Pédagogie</h2>
           <p className="text-xl text-muted-foreground mb-10 text-balance">
-            Venez visiter notre micro crèche et découvrir comment nous accompagnons 
+            Venez visiter notre micro crèche Les petites perles Des Alpes et découvrir comment nous accompagnons 
             chaque enfant dans son épanouissement naturel
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
