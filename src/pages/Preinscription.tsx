@@ -1,5 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollAnimation from "@/components/ScrollAnimation";
+import StaggeredAnimation from "@/components/StaggeredAnimation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, FileText, Users, ExternalLink } from "lucide-react";
@@ -36,27 +38,33 @@ const Preinscription = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            <span className="bg-gradient-primary bg-clip-text text-transparent">Préinscription</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
-            Commencez dès maintenant le processus d'inscription de votre enfant 
-            dans notre micro crèche Les petites perles Des Alpes
-          </p>
+          <ScrollAnimation animation="slideUp">
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+              <span className="bg-gradient-primary bg-clip-text text-transparent">Préinscription</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+              Commencez dès maintenant le processus d'inscription de votre enfant 
+              dans notre micro crèche Les petites perles Des Alpes
+            </p>
+          </ScrollAnimation>
         </div>
       </section>
 
       {/* Processus d'inscription */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <ScrollAnimation animation="slideUp" className="text-center mb-16">
             <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Processus d'Inscription</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Un processus simple et personnalisé pour assurer le meilleur accueil de votre enfant
             </p>
-          </div>
+          </ScrollAnimation>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <StaggeredAnimation 
+            animation="scaleIn" 
+            staggerDelay={0.2}
+            className="grid grid-cols-1 md:grid-cols-4 gap-8"
+          >
             {steps.map((step, index) => (
               <div key={index} className="text-center">
                 <div className="relative mb-6">
@@ -71,7 +79,7 @@ const Preinscription = () => {
                 <p className="text-muted-foreground text-sm text-balance">{step.description}</p>
               </div>
             ))}
-          </div>
+          </StaggeredAnimation>
         </div>
       </section>
 

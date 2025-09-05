@@ -1,5 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollAnimation from "@/components/ScrollAnimation";
+import StaggeredAnimation from "@/components/StaggeredAnimation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -59,85 +61,97 @@ const InfosPratiques = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Infos <span className="bg-gradient-primary bg-clip-text text-transparent">Pratiques</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
-            Toutes les informations utiles pour vous accompagner au quotidien 
-            dans l'accueil de votre enfant
-          </p>
+          <ScrollAnimation animation="slideUp">
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+              Infos <span className="bg-gradient-primary bg-clip-text text-transparent">Pratiques</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+              Toutes les informations utiles pour vous accompagner au quotidien 
+              dans l'accueil de votre enfant
+            </p>
+          </ScrollAnimation>
         </div>
       </section>
 
       {/* Informations de contact */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <ScrollAnimation animation="slideUp" className="text-center mb-16">
             <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Nous Contacter</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Notre équipe est à votre disposition pour répondre à toutes vos questions
             </p>
-          </div>
+          </ScrollAnimation>
           
           <div className="flex flex-wrap justify-center gap-8">
-            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
-                  <MapPin className="h-6 w-6" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">Adresse</h3>
-                <p className="text-muted-foreground text-sm text-balance">{contactInfo.address}</p>
-              </CardContent>
-            </Card>
+            <ScrollAnimation animation="scaleIn" delay={0.1}>
+              <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
+                    <MapPin className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Adresse</h3>
+                  <p className="text-muted-foreground text-sm text-balance">{contactInfo.address}</p>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
             
-            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
-                  <Phone className="h-6 w-6" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">Téléphone</h3>
-                <p className="text-muted-foreground text-sm">{contactInfo.phone}</p>
-              </CardContent>
-            </Card>
+            <ScrollAnimation animation="scaleIn" delay={0.2}>
+              <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
+                    <Phone className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Téléphone</h3>
+                  <p className="text-muted-foreground text-sm">{contactInfo.phone}</p>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
             
-            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
-                  <Mail className="h-6 w-6" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">Email</h3>
-                <p className="text-muted-foreground text-sm break-all">{contactInfo.email}</p>
-              </CardContent>
-            </Card>
+            <ScrollAnimation animation="scaleIn" delay={0.3}>
+              <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
+                    <Mail className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Email</h3>
+                  <p className="text-muted-foreground text-sm break-all">{contactInfo.email}</p>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
             
-            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
-                  <Facebook className="h-6 w-6" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">Facebook</h3>
-                <a 
-                  href={contactInfo.facebook} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-primary/80 transition-smooth text-sm"
-                >
-                  Suivez-nous sur Facebook
-                </a>
-              </CardContent>
-            </Card>
+            <ScrollAnimation animation="scaleIn" delay={0.4}>
+              <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
+                    <Facebook className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Facebook</h3>
+                  <a 
+                    href={contactInfo.facebook} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 transition-smooth text-sm"
+                  >
+                    Suivez-nous sur Facebook
+                  </a>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
             
-            <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
-                  <Clock className="h-6 w-6" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">Horaires</h3>
-                <p className="text-muted-foreground text-sm text-balance">
-                  {contactInfo.hours.weekdays}
-                </p>
-              </CardContent>
-            </Card>
+            <ScrollAnimation animation="scaleIn" delay={0.5}>
+              <Card className="border-0 shadow-card hover:shadow-soft transition-smooth text-center w-64">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 text-primary-foreground">
+                    <Clock className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Horaires</h3>
+                  <p className="text-muted-foreground text-sm text-balance">
+                    {contactInfo.hours.weekdays}
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
@@ -145,29 +159,31 @@ const InfosPratiques = () => {
       {/* FAQ */}
       <section className="py-24 bg-gradient-secondary">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-16">
+          <ScrollAnimation animation="slideUp" className="text-center mb-16">
             <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Questions Fréquentes</h2>
             <p className="text-xl text-muted-foreground text-balance">
               Les réponses aux questions les plus courantes de nos familles
             </p>
-          </div>
+          </ScrollAnimation>
           
-          <Card className="border-0 shadow-luxury bg-card/95">
-            <CardContent className="p-8">
-              <Accordion type="single" collapsible className="w-full">
-                {faqItems.map((item, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger className="text-left hover:text-primary transition-smooth">
-                      {item.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground text-balance">
-                      {item.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </CardContent>
-          </Card>
+          <ScrollAnimation animation="scaleIn" delay={0.3}>
+            <Card className="border-0 shadow-luxury bg-card/95">
+              <CardContent className="p-8">
+                <Accordion type="single" collapsible className="w-full">
+                  {faqItems.map((item, index) => (
+                    <AccordionItem key={index} value={`item-${index}`}>
+                      <AccordionTrigger className="text-left hover:text-primary transition-smooth">
+                        {item.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground text-balance">
+                        {item.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </CardContent>
+            </Card>
+          </ScrollAnimation>
         </div>
       </section>
 

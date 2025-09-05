@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Leaf } from "lucide-react";
+import { motion } from "framer-motion";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
@@ -21,28 +22,44 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
+    <motion.header 
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50"
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <img src={logo} alt="Logo" className="h-32 w-32" />
-          </Link>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link to="/" className="flex items-center space-x-3 group">
+              <img src={logo} alt="Logo" className="h-32 w-32" />
+            </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            {navigation.map((item) => (
-              <Link
+            {navigation.map((item, index) => (
+              <motion.div
                 key={item.name}
-                to={item.href}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-smooth hover:bg-primary/20 hover:text-primary ${
-                  isActive(item.href)
-                    ? "bg-primary text-primary-foreground shadow-soft"
-                    : "text-muted-foreground"
-                }`}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                {item.name}
-              </Link>
+                <Link
+                  to={item.href}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-smooth hover:bg-primary/20 hover:text-primary hover-lift ${
+                    isActive(item.href)
+                      ? "bg-primary text-primary-foreground shadow-soft"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
             ))}
           </div>
 
@@ -100,7 +117,7 @@ const Header = () => {
           </div>
         )}
       </nav>
-    </header>
+    </motion.header>
   );
 };
 

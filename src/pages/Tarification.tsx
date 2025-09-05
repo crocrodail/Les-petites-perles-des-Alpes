@@ -1,5 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollAnimation from "@/components/ScrollAnimation";
+import StaggeredAnimation from "@/components/StaggeredAnimation";
+import AnimatedText from "@/components/AnimatedText";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -86,27 +89,33 @@ const Tarification = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            <span className="bg-gradient-primary bg-clip-text text-transparent">Tarification</span> & Aides
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
-            Des tarifs transparents et accessibles pour offrir à chaque famille 
-            l'accès à notre pédagogie naturelle de qualité
-          </p>
+          <ScrollAnimation animation="slideUp">
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+              <span className="bg-gradient-primary bg-clip-text text-transparent">Tarification</span> & Aides
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+              Des tarifs transparents et accessibles pour offrir à chaque famille 
+              l'accès à notre pédagogie naturelle de qualité
+            </p>
+          </ScrollAnimation>
         </div>
       </section>
 
       {/* Nos tarifs */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <ScrollAnimation animation="slideUp" className="text-center mb-16">
             <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Nos Tarifs</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Choisissez la formule qui correspond le mieux à vos besoins et à votre rythme de vie
             </p>
-          </div>
+          </ScrollAnimation>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <StaggeredAnimation 
+            animation="scaleIn" 
+            staggerDelay={0.2}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
             {plans.map((plan, index) => (
               <Card key={index} className={`relative border-0 shadow-card hover:shadow-luxury transition-smooth ${plan.popular ? 'ring-2 ring-primary shadow-luxury' : ''}`}>
                 {plan.popular && (
@@ -142,7 +151,7 @@ const Tarification = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </StaggeredAnimation>
           
           <div className="mt-12 text-center">
             <div className="bg-accent/50 p-6 rounded-xl max-w-4xl mx-auto">

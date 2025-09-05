@@ -1,6 +1,12 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollAnimation from "@/components/ScrollAnimation";
+import StaggeredAnimation from "@/components/StaggeredAnimation";
+import ParallaxScroll from "@/components/ParallaxScroll";
+import AnimatedCard from "@/components/AnimatedCard";
+import AnimatedButton from "@/components/AnimatedButton";
+import AnimatedImage from "@/components/AnimatedImage";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Users, Leaf, Shield, Star, ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -79,37 +85,41 @@ const Presentation = () => {
       {/* Hero Section */}
       <section className="relative pt-20">
         <div className="relative h-[80vh] overflow-hidden">
-          <img 
-            src={heroImage}
-            alt="Enfants jouant dans un environnement naturel"
-            className="w-full h-full object-cover"
-          />
+          <ParallaxScroll speed={0.3} direction="up">
+            <img 
+              src={heroImage}
+              alt="Enfants jouant dans un environnement naturel"
+              className="w-full h-full object-cover"
+            />
+          </ParallaxScroll>
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center px-4 max-w-4xl">
-              <div className="relative bg-gradient-to-br from-white/80 via-white/70 to-white/60 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/20">
-                <div className="absolute -inset-2 bg-gradient-to-r from-[#D7B772]/30 via-[#F6D7C5]/40 to-[#D7B772]/30 rounded-3xl blur-2xl"></div>
-                <div className="absolute -inset-1 bg-gradient-to-br from-white/40 via-transparent to-white/20 rounded-3xl blur-lg"></div>
-                <div className="relative">
-                <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 text-balance">
-                  Les petites perles
-                  <br />
-                  <span className="text-[#D7B772]">Des Alpes</span>
-                </h1>
-                <p className="text-xl md:text-2xl text-foreground/90 mb-8 text-balance max-w-2xl mx-auto">
-                  Un environnement bienveillant où chaque enfant grandit en harmonie avec la nature
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="shadow-luxury transition-smooth hover:shadow-soft" onClick={() => navigate("/pedagogie")}>
-                    Découvrir notre pédagogie
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" size="lg" className="backdrop-blur-sm" onClick={() => window.open("https://les-petites-perles-des-alpes.jdmapps.fr/index.php/espace-famille/reserver-une-place")}>
-                    Faire une demande de préinscription
-                  </Button>
+              <ScrollAnimation animation="scaleIn" duration={1} delay={0.2}>
+                <div className="relative bg-gradient-to-br from-white/80 via-white/70 to-white/60 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/20">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-[#D7B772]/30 via-[#F6D7C5]/40 to-[#D7B772]/30 rounded-3xl blur-2xl"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-br from-white/40 via-transparent to-white/20 rounded-3xl blur-lg"></div>
+                  <div className="relative">
+                  <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 text-balance">
+                    Les petites perles
+                    <br />
+                    <span className="text-[#D7B772]">Des Alpes</span>
+                  </h1>
+                  <p className="text-xl md:text-2xl text-foreground/90 mb-8 text-balance max-w-2xl mx-auto">
+                    Un environnement bienveillant où chaque enfant grandit en harmonie avec la nature
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button size="lg" className="shadow-luxury transition-smooth hover:shadow-soft" onClick={() => navigate("/pedagogie")}>
+                      Découvrir notre pédagogie
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                    <Button variant="outline" size="lg" className="backdrop-blur-sm" onClick={() => window.open("https://les-petites-perles-des-alpes.jdmapps.fr/index.php/espace-famille/reserver-une-place")}>
+                      Faire une demande de préinscription
+                    </Button>
+                  </div>
+                  </div>
                 </div>
-                </div>
-              </div>
+              </ScrollAnimation>
             </div>
           </div>
         </div>
@@ -118,27 +128,37 @@ const Presentation = () => {
       {/* Nos valeurs */}
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <ScrollAnimation animation="slideUp" className="text-center mb-16">
             <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Nos Valeurs</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Une philosophie éducative centrée sur l'épanouissement de chaque enfant 
               dans le respect de son rythme et de son environnement naturel
             </p>
-          </div>
+          </ScrollAnimation>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggeredAnimation 
+            animation="scaleIn" 
+            staggerDelay={0.15}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
             {values.map((value, index) => (
-              <Card key={index} className="border-0 shadow-card hover:shadow-soft transition-smooth bg-card/50">
-                <CardContent className="p-8 text-center">
+              <AnimatedCard
+                key={index}
+                animation="scaleIn"
+                delay={index * 0.1}
+                hoverEffect="lift"
+                className="h-full"
+              >
+                <div className="text-center py-8">
                   <div className="w-16 h-16 bg-gradient-peach rounded-2xl flex items-center justify-center mx-auto mb-6 text-foreground shadow-soft">
                     {value.icon}
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-4">{value.title}</h3>
                   <p className="text-muted-foreground text-balance">{value.description}</p>
-                </CardContent>
-              </Card>
+                </div>
+              </AnimatedCard>
             ))}
-          </div>
+          </StaggeredAnimation>
         </div>
       </section>
 
@@ -146,7 +166,7 @@ const Presentation = () => {
       <section className="py-24 bg-gradient-secondary">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <ScrollAnimation animation="slideLeft" duration={0.8}>
               <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Notre Approche</h2>
               <p className="text-lg text-muted-foreground mb-8 text-balance">
                 Dans notre micro crèche, nous privilégions une pédagogie active où l'enfant 
@@ -154,7 +174,7 @@ const Presentation = () => {
                 naturels et les expériences sensorielles favorisent un développement harmonieux.
               </p>
               
-              <div className="space-y-6">
+              <StaggeredAnimation animation="fadeIn" staggerDelay={0.2} className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-2 h-2 bg-primary rounded-full mt-3" />
                   <div>
@@ -178,27 +198,38 @@ const Presentation = () => {
                     <p className="text-muted-foreground">Jardin pédagogique et sorties régulières en extérieur</p>
                   </div>
                 </div>
-              </div>
+              </StaggeredAnimation>
               
-              <Button className="mt-8 shadow-soft">
-                En savoir plus sur notre pédagogie
-              </Button>
-            </div>
+              <ScrollAnimation animation="scaleIn" delay={0.6} className="mt-8">
+                <AnimatedButton 
+                  animation="bounce"
+                  delay={0.8}
+                  className="shadow-soft"
+                >
+                  En savoir plus sur notre pédagogie
+                </AnimatedButton>
+              </ScrollAnimation>
+            </ScrollAnimation>
             
-            <div className="relative">
-              <img 
-                src={interiorImage}
-                alt="Intérieur de la micro crèche avec matériaux naturels"
-                className="rounded-2xl shadow-luxury w-full"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-card p-6 rounded-xl shadow-luxury border border-border">
-                <div className="flex items-center space-x-3">
-                  <Star className="h-5 w-5 text-primary" />
-                  <span className="font-semibold text-foreground">Agrément PMI</span>
-                </div>
-                <p className="text-sm text-muted-foreground mt-2">Structure agréée et contrôlée</p>
+            <ScrollAnimation animation="slideRight" duration={0.8}>
+              <div className="relative">
+                <ParallaxScroll speed={0.2} direction="up">
+                  <AnimatedImage
+                    src={interiorImage}
+                    alt="Intérieur de la micro crèche avec matériaux naturels"
+                    className="rounded-2xl shadow-luxury w-full"
+                    hoverEffect="scale"
+                  />
+                </ParallaxScroll>
+                <ScrollAnimation animation="scaleIn" delay={0.3} className="absolute -bottom-6 -left-6 bg-card p-6 rounded-xl shadow-luxury border border-border">
+                  <div className="flex items-center space-x-3">
+                    <Star className="h-5 w-5 text-primary" />
+                    <span className="font-semibold text-foreground">Agrément PMI</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-2">Structure agréée et contrôlée</p>
+                </ScrollAnimation>
               </div>
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
@@ -206,59 +237,85 @@ const Presentation = () => {
       {/* Galerie photos */}
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <ScrollAnimation animation="slideUp" className="text-center mb-16">
             <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Notre Univers</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Découvrez l'ambiance chaleureuse et naturelle de notre micro crèche 
               à travers ces moments de vie partagés avec les enfants
             </p>
-          </div>
+          </ScrollAnimation>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2">
-              <img 
+            <ScrollAnimation animation="scaleIn" delay={0.1} className="lg:col-span-2">
+              <AnimatedImage
                 src={galleryImages[0].src}
                 alt={galleryImages[0].alt}
-                className="w-full h-80 object-cover rounded-2xl shadow-luxury hover:shadow-soft transition-smooth cursor-pointer"
+                className="h-80 rounded-2xl shadow-luxury cursor-pointer w-full"
+                animation="scaleIn"
+                delay={0.1}
+                hoverEffect="scale"
                 onClick={() => openLightbox(0)}
               />
+            </ScrollAnimation>
+            <div className="space-y-6">
+              <ScrollAnimation animation="slideRight" delay={0.2}>
+                <AnimatedImage
+                  src={galleryImages[1].src}
+                  alt={galleryImages[1].alt}
+                  className="h-36 rounded-2xl shadow-luxury cursor-pointer w-full"
+                  animation="slideInRight"
+                  delay={0.2}
+                  hoverEffect="scale"
+                  onClick={() => openLightbox(1)}
+                />
+              </ScrollAnimation>
+              <ScrollAnimation animation="slideRight" delay={0.3}>
+                <AnimatedImage
+                  src={galleryImages[2].src}
+                  alt={galleryImages[2].alt}
+                  className="h-36 rounded-2xl shadow-luxury cursor-pointer w-full"
+                  animation="slideInRight"
+                  delay={0.3}
+                  hoverEffect="scale"
+                  onClick={() => openLightbox(2)}
+                />
+              </ScrollAnimation>
             </div>
             <div className="space-y-6">
-              <img 
-                src={galleryImages[1].src}
-                alt={galleryImages[1].alt}
-                className="w-full h-36 object-cover rounded-2xl shadow-luxury hover:shadow-soft transition-smooth cursor-pointer"
-                onClick={() => openLightbox(1)}
-              />
-              <img 
-                src={galleryImages[2].src}
-                alt={galleryImages[2].alt}
-                className="w-full h-36 object-cover rounded-2xl shadow-luxury hover:shadow-soft transition-smooth cursor-pointer"
-                onClick={() => openLightbox(2)}
-              />
+              <ScrollAnimation animation="slideLeft" delay={0.4}>
+                <AnimatedImage
+                  src={galleryImages[3].src}
+                  alt={galleryImages[3].alt}
+                  className="h-36 rounded-2xl shadow-luxury cursor-pointer w-full"
+                  animation="slideInLeft"
+                  delay={0.4}
+                  hoverEffect="scale"
+                  onClick={() => openLightbox(3)}
+                />
+              </ScrollAnimation>
+              <ScrollAnimation animation="slideLeft" delay={0.5}>
+                <AnimatedImage
+                  src={galleryImages[4].src}
+                  alt={galleryImages[4].alt}
+                  className="h-36 rounded-2xl shadow-luxury cursor-pointer w-full"
+                  animation="slideInLeft"
+                  delay={0.5}
+                  hoverEffect="scale"
+                  onClick={() => openLightbox(4)}
+                />
+              </ScrollAnimation>
             </div>
-            <div className="space-y-6">
-              <img 
-                src={galleryImages[3].src}
-                alt={galleryImages[3].alt}
-                className="w-full h-36 object-cover rounded-2xl shadow-luxury hover:shadow-soft transition-smooth cursor-pointer"
-                onClick={() => openLightbox(3)}
-              />
-              <img 
-                src={galleryImages[4].src}
-                alt={galleryImages[4].alt}
-                className="w-full h-36 object-cover rounded-2xl shadow-luxury hover:shadow-soft transition-smooth cursor-pointer"
-                onClick={() => openLightbox(4)}
-              />
-            </div>
-            <div className="lg:col-span-2">
-              <img 
+            <ScrollAnimation animation="scaleIn" delay={0.6} className="lg:col-span-2">
+              <AnimatedImage
                 src={galleryImages[5].src}
                 alt={galleryImages[5].alt}
-                className="w-full h-80 object-cover rounded-2xl shadow-luxury hover:shadow-soft transition-smooth cursor-pointer"
+                className="h-80 rounded-2xl shadow-luxury cursor-pointer w-full"
+                animation="scaleIn"
+                delay={0.6}
+                hoverEffect="scale"
                 onClick={() => openLightbox(5)}
               />
-            </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
@@ -266,19 +323,31 @@ const Presentation = () => {
       {/* CTA Section */}
       <section className="py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Rejoignez Notre Communauté</h2>
-          <p className="text-xl text-muted-foreground mb-10 text-balance">
-            Offrez à votre enfant un environnement d'épanouissement unique 
-            dans notre micro crèche Les petites perles Des Alpes
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="shadow-luxury">
+          <ScrollAnimation animation="slideUp">
+            <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Rejoignez Notre Communauté</h2>
+            <p className="text-xl text-muted-foreground mb-10 text-balance">
+              Offrez à votre enfant un environnement d'épanouissement unique 
+              dans notre micro crèche Les petites perles Des Alpes
+            </p>
+          </ScrollAnimation>
+          <ScrollAnimation animation="scaleIn" delay={0.3} className="flex flex-col sm:flex-row gap-4 justify-center">
+            <AnimatedButton 
+              animation="bounce"
+              delay={0.3}
+              size="lg"
+              className="shadow-luxury"
+            >
               Demander une visite
-            </Button>
-            <Button variant="outline" size="lg">
+            </AnimatedButton>
+            <AnimatedButton 
+              animation="bounce"
+              delay={0.4}
+              variant="outline"
+              size="lg"
+            >
               Télécharger notre brochure
-            </Button>
-          </div>
+            </AnimatedButton>
+          </ScrollAnimation>
         </div>
       </section>
 

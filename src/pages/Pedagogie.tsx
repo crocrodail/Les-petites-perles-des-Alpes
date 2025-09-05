@@ -1,5 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollAnimation from "@/components/ScrollAnimation";
+import StaggeredAnimation from "@/components/StaggeredAnimation";
+import ParallaxScroll from "@/components/ParallaxScroll";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Sprout, Sun, Palette, Music, BookOpen, Heart } from "lucide-react";
@@ -71,7 +74,7 @@ const Pedagogie = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <ScrollAnimation animation="slideUp" className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
               Notre <span className="bg-gradient-primary bg-clip-text text-transparent">Pédagogie</span>
             </h1>
@@ -79,30 +82,36 @@ const Pedagogie = () => {
               Une approche éducative innovante qui place l'enfant au cœur de la nature 
               pour un développement harmonieux et respectueux
             </p>
-          </div>
+          </ScrollAnimation>
           
-          <div className="relative max-w-4xl mx-auto">
-            <img 
-              src={pedagogyImage}
-              alt="Espace de jeu naturel avec matériaux durables"
-              className="w-full rounded-2xl shadow-luxury"
-            />
-          </div>
+          <ScrollAnimation animation="scaleIn" delay={0.3} className="relative max-w-4xl mx-auto">
+            <ParallaxScroll speed={0.2} direction="up">
+              <img 
+                src={pedagogyImage}
+                alt="Espace de jeu naturel avec matériaux durables"
+                className="w-full rounded-2xl shadow-luxury"
+              />
+            </ParallaxScroll>
+          </ScrollAnimation>
         </div>
       </section>
 
       {/* Nos principes */}
       <section className="py-24 bg-gradient-secondary">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
+          <ScrollAnimation animation="slideUp" className="text-center mb-16">
             <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Nos Principes Pédagogiques</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Une philosophie éducative basée sur le respect, la bienveillance et 
               l'épanouissement naturel de chaque enfant
             </p>
-          </div>
+          </ScrollAnimation>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <StaggeredAnimation 
+            animation="slideUp" 
+            staggerDelay={0.2}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             {principles.map((principle, index) => (
               <Card key={index} className="border-0 shadow-card hover:shadow-soft transition-smooth bg-card/80">
                 <CardContent className="p-8">
@@ -111,22 +120,26 @@ const Pedagogie = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </StaggeredAnimation>
         </div>
       </section>
 
       {/* Activités */}
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <ScrollAnimation animation="slideUp" className="text-center mb-16">
             <h2 className="text-4xl font-bold bg-gradient-gold bg-clip-text text-transparent mb-6">Nos Activités</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
               Des activités variées et adaptées pour stimuler tous les sens 
               et favoriser l'éveil naturel des enfants
             </p>
-          </div>
+          </ScrollAnimation>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <StaggeredAnimation 
+            animation="scaleIn" 
+            staggerDelay={0.15}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {activities.map((activity, index) => (
               <Card key={index} className="border-0 shadow-card hover:shadow-soft transition-smooth group">
                 <CardContent className="p-8 text-center">
@@ -141,7 +154,7 @@ const Pedagogie = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </StaggeredAnimation>
         </div>
       </section>
 
