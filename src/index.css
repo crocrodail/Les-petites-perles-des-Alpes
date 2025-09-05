@@ -8,35 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Premium nature-inspired color palette */
+    --background: 45 15% 98%;
+    --foreground: 150 12% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 150 12% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 150 12% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Sage green primary */
+    --primary: 150 25% 45%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Warm natural secondary */
+    --secondary: 45 20% 92%;
+    --secondary-foreground: 150 12% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft muted tones */
+    --muted: 45 15% 95%;
+    --muted-foreground: 150 8% 55%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Natural accent */
+    --accent: 120 15% 85%;
+    --accent-foreground: 150 12% 15%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --border: 45 12% 88%;
+    --input: 45 12% 88%;
+    --ring: 150 25% 45%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --radius: 0.75rem;
 
-    --radius: 0.5rem;
+    /* Premium gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(150 25% 45%) 0%, hsl(120 20% 50%) 100%);
+    --gradient-secondary: linear-gradient(180deg, hsl(45 15% 98%) 0%, hsl(45 20% 92%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(150 25% 45% / 0.1) 0%, hsl(120 20% 50% / 0.05) 100%);
+    
+    /* Elegant shadows */
+    --shadow-luxury: 0 20px 40px hsl(150 25% 45% / 0.08);
+    --shadow-soft: 0 8px 24px hsl(150 15% 25% / 0.06);
+    --shadow-card: 0 4px 12px hsl(150 10% 25% / 0.04);
+    
+    /* Smooth animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +119,45 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Premium utility classes */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-fast {
+    transition: var(--transition-fast);
+  }
+  
+  .text-balance {
+    text-wrap: balance;
   }
 }
